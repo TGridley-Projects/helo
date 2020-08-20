@@ -12,5 +12,5 @@ content TEXT,
 author_id INT REFERENCES users(user_id));
 
 ALTER TABLE users
-ALTER COLUMN password TEXT;
+ALTER COLUMN password TYPE TEXT;
 
