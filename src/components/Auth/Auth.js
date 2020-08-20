@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import Axios from 'axios';
 
 class Auth extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            profile_pic: ''
         }
     }
 
@@ -20,8 +21,9 @@ class Auth extends Component {
         const {username, password} = this.state;
         const profile_pic = `robohash.org/${username}`
         Axios.post('/auth/register', {username, password, profile_pic}).then(res => {
-            console.log('log 1',this.props.loginUser(res.data))
-            console.log('log 2',this.props.history.push('/dashboard'))
+            console.log(res.data)
+            this.props.addUser(res.data)
+           
             return null
         }).catch(err =>{console.log(err);
             alert('Registration Failed')
