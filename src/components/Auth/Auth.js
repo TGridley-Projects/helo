@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { connect } from 'react-redux';
 import { addUser } from '../../redux/reducers/authReducer';
 import './Auth.css';
+import helo_face from'../Assets/helo_face.png'
 
 class Auth extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class Auth extends Component {
     return (
       <div>
         <section className='center'>
+          <img src={helo_face} alt='Helo Face'/>
           <section className='inputShared'>
             <h4>Username:</h4>
             <input
@@ -57,7 +59,7 @@ class Auth extends Component {
               value={password}
             />
           </section>
-          <section>
+          <section className='authButtons'>
           <button>Login</button>
           <button onClick={this.register}>Register</button>
           </section>

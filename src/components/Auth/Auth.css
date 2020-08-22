@@ -21,7 +21,7 @@ div {
 
 .inputShared {
     height: 30px;
-    margin: 5px;
+    margin: 5px 50px;
     display: flex;
     flex-direction: row;
     align-items: baseline;
@@ -29,4 +29,13 @@ div {
 
 input {
     margin: 5px 25px;
+    width: 200px;
+}
+
+.authButtons{
+    height: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
