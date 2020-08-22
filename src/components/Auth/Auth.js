@@ -41,6 +41,7 @@ class Auth extends Component {
       <div>
         <section className='center'>
           <img src={helo_face} alt='Helo Face'/>
+          <h1>Helo</h1>
           <section className='inputShared'>
             <h4>Username:</h4>
             <input
