@@ -39,10 +39,13 @@ class Auth extends Component {
     const { username, password } = this.state;
     Axios.post('/auth/login', { username, password })
     .then((res) => {
-      this.props.getUser();
+      this.props.addUser(res.data);
       this.props.history.push('/dashboard')
-    })
-  }
+    }).catch((err) => {
+      console.log(err)
+      alert('Incorrect username or password')
+    });
+  };
 
   render() {
     const { username, password } = this.state;
@@ -70,7 +73,7 @@ class Auth extends Component {
             />
           </section>
           <section className='authButtons'>
-          <button>Login</button>
+          <button onClick={this.login}>Login</button>
           <button onClick={this.register}>Register</button>
           </section>
         </section>

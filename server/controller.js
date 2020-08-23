@@ -15,7 +15,7 @@ module.exports = {
       req.session.user = {
         user_id: newUser.user_id,
         username: newUser.username,
-        profile_pic: newUser.profile_pic
+        profile_pic: newUser.profile_pic,
       };
       res.status(200).send(req.session.user);
     }
@@ -24,14 +24,13 @@ module.exports = {
     const db = req.app.get('db');
     const { username, password } = req.body;
     let foundUser = await db.check_user(username);
-    foundUser = foundUser[0]
-    console.log(foundUser)
+    foundUser = foundUser[0];
     if (foundUser) {
       const compareHash = foundUser.password;
       const authenticated = bcrypt.compareSync(password, compareHash);
       if (authenticated) {
         delete foundUser.password;
-        console.log(foundUser)
+        console.log(foundUser);
         req.session.user = foundUser;
         res.status(202).send(req.session.user);
       } else {
