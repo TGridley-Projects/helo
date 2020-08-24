@@ -81,10 +81,6 @@ class Auth extends Component {
     );
   }
 }
-const mapStateToProps = (reduxState) => {
-  return {
-    user: reduxState.user,
-  };
-};
 
-export default connect(mapStateToProps, { addUser })(Auth);
+
+export default connect(null, { addUser })(Auth);
