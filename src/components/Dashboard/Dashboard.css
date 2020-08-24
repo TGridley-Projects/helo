@@ -1,6 +1,57 @@
-.mainPage {
+.mainDashboard {
     height: 100vh;
     width: 100vw;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.searchBar {
+    height: 50px;
+    width: 75%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.searchArea {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.searchInput {
+    padding: 0px;
+    margin: 15px 0px 15px 15px;
+    height: 20px;
+    width: 600px;
+}
+
+.searchButton {
+    height: 25px;
+    width: 25px;
+    background-color: #ff9770;
+    border: 0px;
+    margin: 0px;
+    padding: 2px;
+    object-fit: fill;
+}
+
+.searchReset {
+    margin: 0px;
+    height: 25px;
+    background-color: #403d39;
+}
+
+.myposts {
+    height: 20px;
+    width: 75px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkbox {
+    margin-left: -90px;
+}

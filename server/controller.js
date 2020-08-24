@@ -36,4 +36,9 @@ module.exports = {
       res.status(401).send("Email or password incorrect");
     }
   },
+  getPosts: (req, res) => {
+    const db = req.app.get('db');
+    db.get_posts().then((posts) => res.status(200).send(posts))
+
+  }
 };
