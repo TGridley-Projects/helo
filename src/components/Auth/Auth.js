@@ -23,7 +23,7 @@ class Auth extends Component {
 
   register = () => {
     const { username, password } = this.state;
-    const profile_pic = `robohash.org/${username}`;
+    const profile_pic = `https://robohash.org/${username}`;
     Axios.post('/auth/register', { username, password, profile_pic })
       .then((res) => {
         this.props.addUser(res.data);
@@ -50,7 +50,7 @@ class Auth extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div>
+      <div className='mainLogin'>
         <section className='center'>
           <img src={helo_face} alt='Helo Face'/>
           <h1>Helo</h1>

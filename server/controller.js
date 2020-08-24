@@ -10,13 +10,10 @@ module.exports = {
     } else {
       const salt = bcrypt.genSaltSync(15);
       const hash = bcrypt.hashSync(password, salt);
-      const newUser = await db.create_user([username, hash, profile_pic]);
-      delete newUser[0].password;
-      req.session.user = {
-        user_id: newUser.user_id,
-        username: newUser.username,
-        profile_pic: newUser.profile_pic,
-      };
+      let newUser = await db.create_user([username, hash, profile_pic]);
+      newUser = newUser[0]
+      delete newUser.password;
+      req.session.user = newUser
       res.status(200).send(req.session.user);
     }
   },
@@ -30,7 +27,6 @@ module.exports = {
       const authenticated = bcrypt.compareSync(password, compareHash);
       if (authenticated) {
         delete foundUser.password;
-        console.log(foundUser);
         req.session.user = foundUser;
         res.status(202).send(req.session.user);
       } else {
